@@ -1,8 +1,10 @@
 let canvas;
 let pixelSize = 16; // 表示サイズを大きくするための倍率
-let gridSize = 32;  // アイコンの実際のサイズ
+let gridSize = 8;  // アイコンの実際のサイズ
 let drawing = false;
 let pixels = [];
+
+let currentColor;
 
 function setup() {
     // キャンバスを作成し、指定された要素内に配置
@@ -21,6 +23,23 @@ function setup() {
     document.getElementById('clearButton').addEventListener('click', clearCanvas);
     document.getElementById('saveButton').addEventListener('click', saveIcon);
     
+    // カラーパレットのボタンにイベントリスナーを設定
+    const colorButtons = document.querySelectorAll('.color-btn');
+    colorButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 以前の選択を解除
+            document.querySelector('.color-btn.selected')?.classList.remove('selected');
+            // 新しい選択を設定
+            button.classList.add('selected');
+            currentColor = color(button.dataset.color);
+        });
+    });
+    
+    // 初期カラーを設定
+    const firstColorBtn = document.querySelector('.color-btn');
+    firstColorBtn.classList.add('selected');
+    currentColor = color(firstColorBtn.dataset.color);
+    
     // 描画設定
     noSmooth();
 }
@@ -34,7 +53,6 @@ function draw() {
         const x = floor(mouseX / pixelSize);
         const y = floor(mouseY / pixelSize);
         if (x >= 0 && x < gridSize && y >= 0 && y < gridSize) {
-            const currentColor = color(document.getElementById('colorPicker').value);
             pixels[x][y] = currentColor;
         }
     }

@@ -12,8 +12,25 @@
         <div id="editor"></div>
         <div class="controls">
             <div class="color-picker">
-                <label for="colorPicker">色を選択:</label>
-                <input type="color" id="colorPicker" value="#000000">
+                <label>色を選択:</label>
+                <div class="color-palette">
+                    <button class="color-btn" data-color="rgba(0,0,0,1)" style="background-color: #000000"></button>
+                    <button class="color-btn" data-color="rgba(255,255,255,1)" style="background-color: #FFFFFF"></button>
+                    <button class="color-btn" data-color="rgba(255,0,0,1)" style="background-color: #FF0000"></button>
+                    <button class="color-btn" data-color="rgba(0,255,0,1)" style="background-color: #00FF00"></button>
+                    <button class="color-btn" data-color="rgba(0,0,255,1)" style="background-color: #0000FF"></button>
+                    <button class="color-btn" data-color="rgba(0,255,255,1)" style="background-color: #00FFFF"></button>
+                    <button class="color-btn" data-color="rgba(255,0,255,1)" style="background-color: #FF00FF"></button>
+                    <button class="color-btn" data-color="rgba(255,255,0,1)" style="background-color: #FFFF00"></button>
+                    <button class="color-btn" data-color="rgba(128,0,0,1)" style="background-color: #800000"></button>
+                    <button class="color-btn" data-color="rgba(0,128,0,1)" style="background-color: #008000"></button>
+                    <button class="color-btn" data-color="rgba(0,0,128,1)" style="background-color: #000080"></button>
+                    <button class="color-btn" data-color="rgba(255,128,128,1)" style="background-color: #FF8080"></button>
+                    <button class="color-btn" data-color="rgba(128,255,128,1)" style="background-color: #80FF80"></button>
+                    <button class="color-btn" data-color="rgba(128,128,255,1)" style="background-color: #8080FF"></button>
+                    <button class="color-btn" data-color="rgba(128,128,128,1)" style="background-color: #808080"></button>
+                    <button class="color-btn transparent" data-color="rgba(255,255,255,0)"></button>
+                </div>
             </div>
             <button id="clearButton">クリア</button>
             <button id="saveButton">保存</button>
